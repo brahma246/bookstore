@@ -1,0 +1,16 @@
+.add-book {
+  &__input {
+    width: 100%;
+  }
+  &__section {
+    justify-content: center;
+    &__button {
+        width: 100%;
+      }
+  }
+}
+
+.add-book-header {
+  text-align: center;
+  font-weight: 500;
+}

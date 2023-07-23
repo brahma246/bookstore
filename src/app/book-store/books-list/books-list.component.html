@@ -1,0 +1,44 @@
+
+<div *ngIf="isLoading" class="align-center">LOADING...</div>
+<div *ngIf="showErrorMessage" class="align-center">Unable to load data at this moment.</div>
+<div *ngIf="isLoading === false && showErrorMessage == false" class="book-container">
+
+<div class="book-container__authorinfo" >
+  <div class="book-container__authorinfo__item">
+    <label>Author:</label><span class="book-container__authorinfo__item__value">{{ bookStore.author }}</span>
+  </div>
+  <div class="book-container__authorinfo__item">
+    <label> Birthday: </label> <span class="book-container__authorinfo__item__value">{{ bookStore.birthday }}</span>
+  </div>
+  <div class="book-container__authorinfo__item">
+    <label>BirthPlace:</label> <span class="book-container__authorinfo__item__value">{{ bookStore.birthPlace }}</span>
+  </div>
+</div>
+<div class="book-container__sortbuttons" *ngIf="bookStore?.books!.length > 0" >
+  <button mat-raised-button  (click)="openDialog()" class="book-container__authorinfo__item__value">ADD BOOK</button>
+<div>
+  <button mat-raised-button [disabled]="isTitleDisabled" (click)="sortBy('title')" class="book-container__authorinfo__item__value">Sort by Title</button>
+  <button mat-raised-button [disabled]="isPublishDateDisabled" (click)="sortBy('publishdate')" class="book-container__authorinfo__item__value">Sort by Publish Date</button>
+</div>  
+</div>
+    <div class="book-container__bookslist">   
+    <mat-card class="book-container__bookslist__card" *ngFor="let book of bookStore?.books;let ind=index;">
+        <mat-card-header class="book-container__bookslist__card__header">
+          <mat-card-title class="book-container__bookslist__card__title">
+            
+          </mat-card-title>
+        </mat-card-header>
+        <img  [src]="book.imageUrl" [alt]="book.title"  class="book-container__bookslist__card__image" >
+        <mat-card-content>
+          <p>
+            <a [href]="book.purchaseLink" target="_blank" class="book-container__bookslist__card__title__link">{{book.title}}</a><br/>
+            <span>{{book.PublishDate}}</span>
+          </p>
+          <button mat-flat-button (click)="deleteImage(ind)" class="book-container__bookslist__card__title">DELETE</button>
+        </mat-card-content>
+      </mat-card>
+</div>
+
+<div *ngIf="bookStore?.books!.length === 0" class="book-container__noresults"> No results found </div>
+
+</div>
