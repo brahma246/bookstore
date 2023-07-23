@@ -1,0 +1,26 @@
+<h4 class="add-book-header">ADD BOOK</h4>
+<form [formGroup]="addBookForm" (ngSubmit)="submit()" class="add-book">
+  <mat-form-field class="add-book__input">
+    <input
+      matInput
+      type="text"
+      class="add-book__input"
+      formControlName="title"
+      placeholder="Enter Book Name"
+    />
+  </mat-form-field>
+  <mat-form-field class="add-book__input">
+    <input
+      matInput
+      type="text"
+      class="add-book__input"
+      formControlName="PublishDate"
+      placeholder="Enter Publish Date"
+    />
+  </mat-form-field>
+  <input class="add-book__input" type="file" accept="image/*" (change)="addImage($event)"/>
+  <div mat-dialog-actions class="add-book__section">
+  <button mat-raised-button mat-dialog-close class="add-book-section__button">CLOSE</button>
+  <button mat-raised-button type="submit" [mat-dialog-close]="addBookForm.value" class="add-book-section__button">ADD</button>
+  </div>
+</form>

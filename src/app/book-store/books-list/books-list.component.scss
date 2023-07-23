@@ -1,0 +1,77 @@
+.book-container {
+  width:700px;
+  margin: 0px auto;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+  &__authorinfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2%;
+    padding-top: 0;
+    border: 2px solid lightgrey;
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+        }
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      height: 30px;
+      border: 1px;
+      &__value {
+        margin-left: 3px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+  &__sortbuttons {
+    display: flex;
+    margin: 8px 0px;
+    justify-content: space-between;
+    @media screen and (max-width: 600px) {
+      justify-content: center;
+    }
+  }
+  &__bookslist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1%;
+    column-gap: 2%;
+    justify-content: center;
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+      row-gap: 0.5%;
+    }
+
+    &__card {
+      text-align: center;
+
+      &__header {
+        justify-content: center;
+      }
+      &__title {
+        font-size: 14px;
+        &__link {
+            color: blue;
+          text-decoration: none;
+        }
+      }
+      &__image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+  &__noresults {
+    border: 2px solid lightgray;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.align-center {
+  text-align: center;
+}
