@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -16,9 +16,9 @@ export class AddBookComponent implements OnInit {
   ) {
     // Reactive Form
     this.addBookForm = this.fb.group({
-      imageUrl: [''],
-      title: [''],
-      PublishDate: [''],
+      imageUrl: ['', Validators.required],
+      title: ['',Validators.required],
+      PublishDate: ['', Validators.required],
     });
   }
 

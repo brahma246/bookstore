@@ -21,6 +21,6 @@
   <input class="add-book__input" type="file" accept="image/*" (change)="addImage($event)"/>
   <div mat-dialog-actions class="add-book__section">
   <button mat-raised-button mat-dialog-close class="add-book-section__button">CLOSE</button>
-  <button mat-raised-button type="submit" [mat-dialog-close]="addBookForm.value" class="add-book-section__button">ADD</button>
+  <button mat-raised-button type="submit" [disabled]="!addBookForm?.valid" [mat-dialog-close]="addBookForm?.value" class="add-book-section__button">ADD</button>
   </div>
 </form>
